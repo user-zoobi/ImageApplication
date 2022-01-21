@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.imagegallery.network.response.Pixabay.Hit" />
+        <variable
+            name="listenerClick"
+            type="com.example.imagegallery.presentations.adapter.BaseAdapter.OnItemClickListener" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+
+        android:id="@+id/imageHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="3dp"
+        android:onClick="@{()->listenerClick.onItemClick(item)}"
+        android:layout_margin="5dp">
+
+        <RelativeLayout
+
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner"
+            android:weightSum="3">
+
+            <ImageView
+                android:id="@+id/largeImg"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                app:imageFromUrl="@{item.largeImageURL}" />
+
+            <LinearLayout
+                android:id="@+id/others"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_below="@id/largeImg"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/comment" />
+
+                    <TextView
+                        android:id="@+id/pixaComments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="10sp"
+                        android:text="@{String.valueOf(item.comments), default=Name}"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/downward" />
+
+                    <TextView
+                        android:id="@+id/pixaDownloads"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(item.downloads),default=Name}"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="10sp"
+                        android:layout_gravity="center" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sideProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="180dp"
+                android:alpha="0.85"
+                android:background="@drawable/user_layout_corners"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    app:circularImageFromUrl="@{item.userImageURL}" />
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:text="@{item.user, default=Name}" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

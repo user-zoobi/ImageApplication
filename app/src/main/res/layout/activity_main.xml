@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/splashImage"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/airlift_logo" />
+
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/galleryApp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="@font/alegreya_black"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/splashImage"
+        android:textSize="40sp" />
+
+        <LinearLayout
+            android:id="@+id/imageBelowText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/appTitle"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/airlift"
+                android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/technology"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>

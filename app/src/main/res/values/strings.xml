@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ImageGallery</string>
+    <string name="airlift">Airlift</string>
+    <string name="technology">Technology</string>
+    <string name="byAirlift">by Airlift</string>
+    <string name="know_more">Know More</string>
+    <string name="share">Share</string>
+    <string name="uploaded_by">Uploaded By:</string>
+    <string name="tags">Tags:</string>d
+    <string name="galleryApp">Gallery Application</string>
+</resources>
